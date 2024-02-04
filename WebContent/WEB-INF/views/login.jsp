@@ -24,6 +24,10 @@
 		if(resultMsg.length > 0){
 			alert(resultMsg);
 		}
+		// 성공한다면 ~ 
+		if(resultCode == 'loginOk'){
+			window.location.href = '<c:url value= "/list.do"/>?offset=1&limit=20';
+		}
 	}
 </script>
 
@@ -39,7 +43,7 @@
 				<form action="<c:url value='/login.do'/>" method="post"
 					onsubmit="return formCheck(this);">
 					<div class="input-field">
-						<input type="text" name="id" placeholder="Enter your email"
+						<input type="text" name="memberId" placeholder="Enter your email"
 							required> <i class="uil uil-envelope icon"></i>
 					</div>
 					<div class="input-field">

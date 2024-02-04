@@ -42,6 +42,7 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao {
 
 	@Override
 	public int join(HashMap<String, String> params) {
+//		아래 세줄은 암호화함. 
 		Sha512Encoder encoder = Sha512Encoder.getInstance();
 		String passwd = params.get("passwd");
 		String encodeTxt = encoder.getSecurePassword(passwd);
@@ -51,7 +52,7 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao {
 				+ "', '" + encodeTxt
 				+ "', '" + params.get("email")
 				+ "', to_char(now(), 'YYYYMMDDHH24MISS'))";
-		
+//		업데이트문에 영향을 받은 row의 개수 반환됨. 그러므로 int. 
 		return getJdbcTemplate().update(sql);
 	}
 

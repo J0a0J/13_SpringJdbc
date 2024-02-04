@@ -11,5 +11,21 @@
 	<bean id="memberDao" class="com.feb.jdbc.dao.impl.MemberDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<bean id="noticeService" class="com.feb.jdbc.service.NoticeService">
+		<constructor-arg ref="noticeDao" />
+	</bean>
+	
+	<bean id="noticeDao" class="com.feb.jdbc.dao.impl.NoticeDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="loginService" class="com.feb.jdbc.service.LoginService">
+		<constructor-arg ref="loginDao" />
+	</bean>
+	
+	<bean id="loginDao" class="com.feb.jdbc.dao.impl.LoginDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 </beans>
